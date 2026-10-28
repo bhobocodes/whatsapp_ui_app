@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:practise_project/splash_view.dart';
-import 'home_view.dart';
+import 'views/home_view.dart';
 
 
 void main() {

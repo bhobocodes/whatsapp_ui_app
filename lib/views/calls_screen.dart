@@ -6,7 +6,7 @@ class CallsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFF075E55),
+      backgroundColor: const Color(0xFFFFFFFF),
 
       body: ListView(
         children: [
@@ -17,11 +17,11 @@ class CallsScreen extends StatelessWidget {
             child: TextField(
               decoration: InputDecoration(
                 hintText: "Search name or number",
-                hintStyle: const TextStyle(color: Colors.deepPurpleAccent ),
+                hintStyle: const TextStyle(color: Colors.black ),
                 filled: true,
-                fillColor: const Color(0xFF10CE62),
+                fillColor: const Color(0xFFFFFFFF),
 
-                prefixIcon: const Icon(Icons.search,color: Colors.white),
+                prefixIcon: const Icon(Icons.search,color: Colors.black),
 
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(30),
@@ -47,8 +47,8 @@ class CallsScreen extends StatelessWidget {
           const ListTile(
             leading: CircleAvatar(
               radius: 28,
-              backgroundColor: Colors.green,
-              child: Icon(Icons.favorite,color: Colors.blue),
+              backgroundColor: Colors.blueGrey,
+              child: Icon(Icons.favorite,color: Colors.red),
             ),
 
             title: Text(

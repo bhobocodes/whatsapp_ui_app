@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:practise_project/message_screen.dart';
 import 'package:practise_project/views/calls_screen.dart';
 import 'package:practise_project/views/settings_screen.dart';
 import 'package:practise_project/views/status_screen.dart';
+import 'package:practise_project/views/camera_screen.dart';
 
 
 class HomeView extends StatefulWidget {
@@ -94,92 +94,30 @@ class _HomeViewState extends State<HomeView> {
               Tab(text: 'CHATS'),
               Tab(text: 'STATUS'),
               Tab(text: 'CALLS'),
+
             ],
           ),
         ),
         body: TabBarView(
           children: [
-            const Center(child: Text('Camera')),
+            // CAMERA
+            const CameraScreen(),
 
             // CHATS
             ListView.builder(
               itemCount: chatList.length,
               itemBuilder: (context, index) {
                 return ListTile(
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => MessageScreen(
-                          name: chatList[index]['name'],
-                          image: chatList[index]['image'],
-                        ),
-                      ),
-                    );
-                  },
-
-                  leading: CircleAvatar(
-                    backgroundImage: NetworkImage(chatList[index]['image']),
-                  ),
-
-                  title: Text(
-                    chatList[index]['name'],
-                    style: const TextStyle(fontWeight: FontWeight.bold),
-                  ),
-
-                  subtitle: Text(
-                    chatList[index]['last_msg'],
-                    maxLines: 1,
-                    overflow: TextOverflow.ellipsis,
-                    style: TextStyle(
-                      color: Colors.black.withOpacity(.5),
-                    ),
-                  ),
-
-                  trailing: Column(
-                    crossAxisAlignment: CrossAxisAlignment.end,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        chatList[index]['time'],
-                        style: TextStyle(
-                          color: chatList[index]['count'] == 0
-                              ? Colors.black
-                              : const Color(0xFF10CE62),
-                        ),
-                      ),
-
-                      chatList[index]['count'] == 0
-                          ? const SizedBox()
-                          : Container(
-                        width: 20,
-                        height: 20,
-                        decoration: const BoxDecoration(
-                          color: Color(0xFF10CE62),
-                          shape: BoxShape.circle,
-                        ),
-                        child: Center(
-                          child: Text(
-                            chatList[index]['count'].toString(),
-                            style: const TextStyle(
-                              color: Colors.white,
-                              fontSize: 12,
-                              fontWeight: FontWeight.w600,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
+                  title: Text(chatList[index]['name']),
                 );
               },
             ),
 
-            // STATUS 👇 এখানে add করা হলো
+            // STATUS
             const StatusScreen(),
-            const CallsScreen(),
 
-            const Center(child: Text('Calls')),
+            // CALLS
+            const CallsScreen(),
           ],
         ),
 
